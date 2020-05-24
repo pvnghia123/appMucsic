@@ -1,12 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:fillViewport="true"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <fragment
+            android:name="com.example.appmusic.Fragment.Fragment_Banner"
+            android:id="@+id/fragmentbanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:text="Trang Chu"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:textSize="20sp"
-        android:layout_height="wrap_content"/>
-</RelativeLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+
+               android:enabled="true"
+               android:selectAllOnFocus="false"
+                android:maxLines="1"
+                android:id="@+id/idEdtext"
+                android:drawableLeft="@drawable/ic_search_black_24dp"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:hint="tìm kiếm bài hát" />
+
+
+
+        </LinearLayout>
+        <fragment
+            android:name="com.example.appmusic.Fragment.fragment_Playlist"
+            android:id="@+id/fragmentPlaylist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.example.appmusic.Fragment.fragment_album"
+            android:id="@+id/fragmenttAlbum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.example.appmusic.Fragment.fragment_album_NGHN"
+            android:id="@+id/fragmenttAlbum_nghn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.example.appmusic.Fragment.fragment_album_moi"
+            android:id="@+id/fragmenttAlbum_moi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

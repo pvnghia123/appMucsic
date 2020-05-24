@@ -20,7 +20,7 @@
         app:tabSelectedTextColor="#43A0B3"
         app:tabIndicatorHeight="2dp"
         android:background="@android:color/transparent"
-        android:layout_gravity="bottom"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </RelativeLayout>

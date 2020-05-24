@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:text="Ca nhan"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:textSize="20sp"
-        android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb"
+        app:title="Danh sách nhạc của bạn"
+        app:titleTextColor="#989876"
+        android:background="#FF9100"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+    <Button
+        android:id="@+id/tvPhatAll"
+        android:layout_width="204dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/tb"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="107dp"
+        android:layout_marginRight="107dp"
+        android:width="50dp"
+        android:textColor="#B6B61B"
+        android:textStyle="bold"
+        android:background="#4575B8"
+        android:text="phát tất cả"
+        android:textAlignment="gravity"
+        android:textSize="20dp" />
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/recyviewds_offline"
+       android:layout_marginTop="20dp"
+       android:layout_below="@+id/tvPhatAll"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
 </RelativeLayout>

@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void init(){
         MainViewPagerAdapter mainViewPagerAdapter=new MainViewPagerAdapter(getSupportFragmentManager());
-        mainViewPagerAdapter.addPrament(new Fragment_ca_nhan(),"ca nhan");
-        mainViewPagerAdapter.addPrament(new Fragment_Trang_chu(),"trang tru");
-        mainViewPagerAdapter.addPrament(new Fragment_Tim_Kiem()," tiem kiem");
+        mainViewPagerAdapter.addPrament(new Fragment_Trang_chu(),"trang chủ");
+        mainViewPagerAdapter.addPrament(new Fragment_ca_nhan(),"cá nhân");
+   //     mainViewPagerAdapter.addPrament(new Fragment_Tim_Kiem()," tiem kiem");
         viewPager.setAdapter(mainViewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.person);
-        tabLayout.getTabAt(1).setIcon(R.drawable.icontrangchu);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_search_black_24dp);
+        tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
+        tabLayout.getTabAt(1).setIcon(R.drawable.person);
+       // tabLayout.getTabAt(2).setIcon(R.drawable.ic_search_black_24dp);
     }
 }

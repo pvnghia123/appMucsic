@@ -1,9 +1,13 @@
 package com.example.appmusic.Activity;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.appmusic.Adapter.MainViewPagerAdapter;
 import com.example.appmusic.Fragment.Fragment_Tim_Kiem;
@@ -29,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager =findViewById(R.id.myviewPage);
     }
     public void init(){
-        MainViewPagerAdapter mainViewPagerAdapter=new MainViewPagerAdapter(getSupportFragmentManager());
+        final MainViewPagerAdapter mainViewPagerAdapter=new MainViewPagerAdapter(getSupportFragmentManager());
         mainViewPagerAdapter.addPrament(new Fragment_Trang_chu(),"trang chủ");
         mainViewPagerAdapter.addPrament(new Fragment_ca_nhan(),"cá nhân");
    //     mainViewPagerAdapter.addPrament(new Fragment_Tim_Kiem()," tiem kiem");
@@ -38,5 +42,27 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
         tabLayout.getTabAt(1).setIcon(R.drawable.person);
        // tabLayout.getTabAt(2).setIcon(R.drawable.ic_search_black_24dp);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+//             if(position==1){
+//                 viewPager.getAdapter().notifyDataSetChanged();
+//             }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+
+        });
+
+
     }
 }

@@ -8,6 +8,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.example.appmusic.Model.Baihat;
+
 import java.util.ArrayList;
 
 public class database extends SQLiteOpenHelper {
@@ -38,7 +40,7 @@ public class database extends SQLiteOpenHelper {
 
 
     public ArrayList getAllData(){
-        ArrayList<baihat1> products = new ArrayList<>();
+        ArrayList<Baihat> products = new ArrayList<>();
 
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * from bathat", null);
@@ -53,7 +55,7 @@ public class database extends SQLiteOpenHelper {
             String linkbaihat = cursor.getString(3);
 
 
-            products.add(new baihat1(idbaihat,tenbaihat,tencasi,linkbaihat));
+            products.add(new Baihat(idbaihat,tenbaihat," ",tencasi,linkbaihat));
             cursor.moveToNext();
         }
 
@@ -66,20 +68,27 @@ public class database extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO bathat VALUES ('"+product.idbaihat+"','"+product.tenbaihat+"','"+product.tencasi+"','"+product.linkbaihat+"')");
 
     }
-   public void deletaBaihat(baihat1 product) {
+   public void deletaBaihat(String id) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("delete from bathat where idbaihat='"+product.idbaihat+"'");
+        db.execSQL("delete from bathat where idbaihat='"+id+"'");
 
     }
     public boolean checkBaihat(String idbaihat) {
         SQLiteDatabase db = getReadableDatabase();
        // db.execSQL("select count('idbaihat') from bathat where idbaihat='"+product.idbaihat+"'");
-        Cursor cursor=db.rawQuery("select count('idbaihat') from bathat where idbaihat='"+idbaihat+"'",null);
-        if(cursor.isFirst()){
-            Log.d("aa", "duwx lieu bai hat dax ton tai: "+cursor.getString(0)+cursor.getString(1));
+        Cursor cursor=db.rawQuery("select * from bathat where idbaihat='"+idbaihat+"'",null);
+        //cursor.moveToFirst();
+        if (cursor!=null && cursor.moveToFirst()&&cursor.getString(0).equals(idbaihat) && cursor.getCount()>0){
             return true;
         }else{
             return false;
         }
+
+//        if(cursor.isFirst()){
+//            Log.d("aa", "duwx lieu bai hat dax ton tai: "+cursor.getString(0)+cursor.getString(1));
+//            return true;
+//        }else{
+//            return false;
+//        }
     }
 }

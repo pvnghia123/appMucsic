@@ -77,6 +77,8 @@ public class dsbaihatadapter extends RecyclerView.Adapter<dsbaihatadapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     database database=new database(context,"baihat.sqlite",null,1);
+
+
                     if(!database.checkBaihat(arrayListbaihat.get(getPosition()).getIdbaihat()))
                     {
                         String linkbaihat=arrayListbaihat.get(getPosition()).getLinkbaihat();
@@ -113,11 +115,11 @@ public class dsbaihatadapter extends RecyclerView.Adapter<dsbaihatadapter.ViewHo
                         // them voao trong csdl
                         baihat1 Baihat=new baihat1(id,tenbaihat,tencasi,linkbaihatLocal);
                         database.insertBaihat(Baihat);
-                        new Fragment_ca_nhan();
+
 
                     }else{
                         Log.d("aa", " ton tai: "+arrayListbaihat.get(getPosition()).getIdbaihat());
-                        // Toast.makeText(context,"da ton tai",Toast.LENGTH_LONG).show();
+                         Toast.makeText(context," file da ton tai",Toast.LENGTH_LONG).show();
                     }
                 }
             });

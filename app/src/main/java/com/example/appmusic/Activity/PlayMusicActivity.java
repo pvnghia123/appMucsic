@@ -57,27 +57,16 @@ public class PlayMusicActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_music);
-
+      //  new PlayMp3().execute("../storage/sdcard0/Download/Karik,%20OnlyC%20%E2%80%93%20Anh%20Kh%C3%B4ng%20%C4%90%C3%B2i%20Qu%C3%A0.mp3");
         init();
         getDataFromIntent();
-        addviewpaper();
-        eventClick();
+       addviewpaper();
+       eventClick();
 
     }
 
     private void eventClick() {
-        Handler handler=new Handler();
-//      handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                if(viewpaperAdapter.getItem(1)!=null){
-//                    if (baihatArrayList.size()>0){
-//                        fragment_dianhac.Play
-//                    }
-//                }
-//
-//            }
-//        },500);
+
         butplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {// su kien nut play

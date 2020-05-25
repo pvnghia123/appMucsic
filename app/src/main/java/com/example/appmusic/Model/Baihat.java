@@ -33,6 +33,14 @@ public class Baihat implements Serializable {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    public Baihat(String idbaihat, String tenbaihat, String s, String tencasi, String linkbaihat) {
+        this.idbaihat=idbaihat;
+        this.tenbaihat=tenbaihat;
+        this.hinhbaihat=s;
+        this.casi=tencasi;
+        this.linkbaihat=linkbaihat;
+    }
+
     @JsonProperty("idbaihat")
     public String getIdbaihat() {
         return idbaihat;
@@ -93,11 +101,5 @@ public class Baihat implements Serializable {
         this.additionalProperties.put(name, value);
     }
 
-    public Baihat(String idbaihat, String tenbaihat, String hinhbaihat, String casi, String linkbaihat) {
-        this.idbaihat = idbaihat;
-        this.tenbaihat = tenbaihat;
-        this.hinhbaihat = hinhbaihat;
-        this.casi = casi;
-        this.linkbaihat = linkbaihat;
-    }
+
 }

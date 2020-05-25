@@ -1,5 +1,6 @@
 package com.example.appmusic.Adapter;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -33,5 +34,10 @@ private ArrayList<String> arraytitle=new ArrayList<>();
     @Override
     public CharSequence getPageTitle(int position) {
         return arraytitle.get(position);
+    }
+
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        return POSITION_NONE;
     }
 }

@@ -26,8 +26,8 @@ public class Fragment_ca_nhan extends Fragment {
     Toolbar toolbar;
     Button button;
     RecyclerView recyclerView_off;
-   static ArrayList<baihat1> arrayList=new ArrayList<>();
-
+   static ArrayList<Baihat> arrayList=new ArrayList<>();
+    dsBaihat_offAdapter dsBaihat_offAdapter;
 
 
     @Nullable
@@ -39,9 +39,18 @@ public class Fragment_ca_nhan extends Fragment {
         toolbar=view.findViewById(R.id.tb);
         recyclerView_off=view.findViewById(R.id.recyviewds_offline);
         khoitao();
-        dsBaihat_offAdapter dsBaihat_offAdapter=new dsBaihat_offAdapter(getActivity(),arrayList);
+         dsBaihat_offAdapter=new dsBaihat_offAdapter(getActivity(),arrayList);
         recyclerView_off.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView_off.setAdapter(dsBaihat_offAdapter);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    // phat tat ca
+            }
+        });
+
+
         return view;
     }
 
@@ -49,22 +58,11 @@ public class Fragment_ca_nhan extends Fragment {
 
 
         database database=new database(getActivity(),"baihat.sqlite",null,1);
-        database.queryData("Create table if not exists bathat (idbaihat integer primary key,tenbaihat varchar(250),tencasi varchar(250),linkbaihat varchar(250))");
-
-
-      //  baihat1 baihat11=new baihat1(1,"dotakhong do nang","onlyc"," ");
-
-       // database.insertBaihat(baihat11);
-       // database.deletaBaihat(baihat11);
-
+        database.queryData("Create table if not exists bathat (idbaihat varchar(250) primary key,tenbaihat varchar(250),tencasi varchar(250),linkbaihat varchar(250))");
         arrayList=database.getAllData();
 
-
-
-
-//        arrayList.add(new Baihat(" ","dộ ta không độ nàng"," ","onlyc"," "));
-//        arrayList.add(new Baihat(" ","gọi tên cô đơn"," ","onlyc"," "));
     }
-
-
+    public void reset(){
+         dsBaihat_offAdapter.notifyDataSetChanged();
+    }
 }
